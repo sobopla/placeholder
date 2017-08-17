@@ -39,6 +39,16 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails'
+  gem 'capybara', "~> 2.5"
+  gem 'launchy'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec', require: false
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'rspec-collection_matchers'
+  gem 'rails-controller-testing'
+  gem 'pry-rails'
 end
 
 group :development do
