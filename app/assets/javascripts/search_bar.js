@@ -9,20 +9,18 @@ $(document).ready(function(){
     var $form = $(this);
     var data = $form.serialize()
 
+    // set up Spotify with client id & client key
+    $.post("/spotify/setup", function(response){
+
+
+    })
+
     $.get("/homes/wiki", data , function(response){
       console.log(response)
       console.log("done")
     })
   })
 
-  for (var i = 0; i < artists.length; i++) {
-    // format the url
-    var artist_link = artists[i].replace(/\s/g, "_")
-    $.get("https://en.wikipedia.org/wiki/" + artist_link, function(data){
-      console.log("here")
-    })
-
-  }
 
 
 
