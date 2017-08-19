@@ -20,5 +20,7 @@ class SongkicksController < ApplicationController
     end
     artists.uniq!
     p response
+
+    spotify
   end
 end
