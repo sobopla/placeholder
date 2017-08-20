@@ -17,17 +17,42 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
-    <div id="user-info">
-      <% if user_signed_in? %>
-        <%#= current_user.name %>
-        [<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>]
-      <% else %>
-        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 
-      <% end %>
-    </div>
-    <div id="container">
+    <div class="row">
+    <div class="row nav-bar">
+      <div class="twelve columns">
+        <nav>
+          <ul style="list-style: none;">
+            <li><%= link_to image_tag("bat.png", :alt => "home"), root_path, class: "logo" %></li>
+
+              <!-- <div id="user-info"> -->
+
+            <% if user_signed_in? %>
+              <%#= current_user.name %>
+              <li class="user-link"> <%= link_to 'Sign out', destroy_user_session_path, method: :delete %> </li>
+              <li class="user-link"> <%= link_to(current_user.email, user_path(current_user.id)) %> </li>
+            <% else %>
+              <li class="user-link"><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %> </li>
+
+            <% end %>
+
+
+              <!-- </div> -->
+
+          </ul>
+        </nav>
+
+    </div>  <!-- row -->
+    </div>  <!-- navbar -->
+
+
+    <div class="main">
       <%= yield %>
     </div>
+
+    <footer class="footer">
+      <p>THIS IS THE FOOTER</p>
+    </footer>
+
   </body>
 </html>

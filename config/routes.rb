@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   # root 'songkicks#index'
 
+  resources :users, only: [:show, :users, :new]
+
 end
