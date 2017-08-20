@@ -59,6 +59,7 @@ module SpotifyHelper
         next if JSON.parse(response.body)["artists"]["items"].empty?
         id_from_spotify = JSON.parse(response.body)["artists"]["items"][0]["id"]
         genre_array = JSON.parse(response.body)["artists"]["items"][0]["genres"]
+        band_photo = JSON.parse(response.body)["artists"]["items"][0]["images"][0]["url"]
 
         # id_from_spotify = "12Chz98pHFMPJEknJQMWvI"
         # genre_array = ["alternative metal",
@@ -72,7 +73,7 @@ module SpotifyHelper
         #                "rock"]
 
         # add to our database
-        new_artist = Artist.create(name: artist, spotify: id_from_spotify)
+        new_artist = Artist.create(name: artist, spotify: id_from_spotify, image: band_photo)
           genre_array.each do |specific_genre|
             genre = Genre.find_or_create_by(genre: specific_genre)
             new_artist.genres << genre
