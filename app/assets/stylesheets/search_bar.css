@@ -1,5 +1,9 @@
 /* another option for search bar https://codepen.io/Memphis/pen/ihjDu */
 
+.blah {
+  background-color: pink;
+}
+
 .flexsearch--wrapper {
     height: auto;
     width: auto;

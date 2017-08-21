@@ -69,7 +69,6 @@ module SpotifyHelper
             genre = Genre.find_or_create_by(genre: specific_genre)
             new_artist.genres << genre
           end
-
         artists << new_artist if new_artist.genres.pluck(:genre).any? { |word| word.include?(user_genre) }
       end
     end

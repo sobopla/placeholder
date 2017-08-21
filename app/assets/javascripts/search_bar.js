@@ -1,7 +1,7 @@
 
 
 $(document).ready(function(){
-	$(".loading").hide();
+  $(".loading").hide();
 
   $("form.search-bar").on("submit", function(event){
     event.preventDefault();
@@ -13,11 +13,16 @@ $(document).ready(function(){
     $form.hide();
     
     $.post("homes/search", data, function(response){
-    	console.log(response)
-    	$("div.results").append(response)
-    	console.log("done")
-    	$(".loading").hide();
-    	$form.show();
+    	console.log(response.partials)
+      console.log(response)
+      console.log("done")
+
+      for (var i = 0; i < response.partials.length; i++) {
+        console.log("i loopie!")
+      	$("div .results").append(response.partials[i])
+      }
+      $(".loading").hide();
+      $form.show();
     })
 
 
