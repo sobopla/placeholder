@@ -2,7 +2,6 @@ require 'rspotify'
 
 class HomesController < ApplicationController
 
-
   def index
   end
 
@@ -14,15 +13,23 @@ class HomesController < ApplicationController
       @matched_events = EventMatchHelper.get_matched_events(matched_artists, events_queried)
     else # artist entered
       @matched_events = []
-      binding.pry
     end
 
-    if @matched_events.empty?
-      flash[:notice] = "no shows that match your criteria"
-    end
+    if request.xhr?
+      partials = []
 
-    return @matched_events
+      @matched_events.each do |show| 
+        partials << render_to_string(partial: "display_show", locals: { show: show })
+      end
+
+      if partials.empty?
+        partials << render_to_string(partial: "no_matches")
+      end
+
+      render :json => { partials: partials }.to_json
+    else
+      return @matched_events
+    end
   end
-
 
 end
