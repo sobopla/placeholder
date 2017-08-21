@@ -1,15 +1,10 @@
-<div class="flexsearch">
-    <div class="flexsearch--wrapper">
-      <form class="flexsearch--form search-bar" action="homes/search" method="post">
-        <div class="flexsearch--input-wrapper">
-          <input class="flexsearch--input" type="search" placeholder="search" name="user_input">
-        </div>
-        <button class="flexsearch--submit" type="submit">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
-      </form>
-    </div>
+<div class="replace-me-with-something-better">
+<p>This is the image like the one above the google. It should contain white space/margin above it and is not clickable. If this image was in public, it would not need to be written with ruby. In this page, the layout should not have the bat in the nav bar. So there will be a diffent layout for this page, the root index page </p>
+ <%= image_tag "bat.png" %>
 </div>
+
+
+<%= render "searchbar" %>
 
 <div class="loading">
   <span>boppin'</span>
@@ -18,3 +13,6 @@
 <div class="results"></div>
 
 <%= @city %>
+
+<button data-page="0" type="button" class="load_more">one more month of shows please!!</button>
+

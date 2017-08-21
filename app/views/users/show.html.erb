@@ -1,0 +1,23 @@
+This is the users show profile page
+find me in app/views/users/show
+<div class="container profile-page">
+  <% if current_user && current_user.id == @user.id %>
+
+    <h1 style="padding-bottom: 10px;"> Hello, <%= current_user.email %>!</h1>
+  <% else %>
+
+    <h1 style="padding-bottom: 10px;"> current user does not match currentuser.id == @user.id <%= @user.email %></h1>
+  <% end %>
+
+    <div>
+      <!-- < % = image_tag("blank-profile-picture.png", :alt => "user-photo", class: "user-photo") % > -->
+      <h5><%= @user.email %> 's info will go here . favorites, genre search history. remove the border from user-info class.  </h5>
+      <!-- <h5>< % = @user.favorites % > </h5> -->
+
+      <% if current_user && current_user.id == @user.id %>
+        <h6><%= link_to('Edit Account', edit_user_registration_path) %></h6>
+      <% end %>
+    </div>
+
+  </div>
+</div>
