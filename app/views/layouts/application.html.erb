@@ -32,7 +32,11 @@
               <li class="user-link"> <%= link_to 'Sign out', destroy_user_session_path, method: :delete %> </li>
               <li class="user-link"> <%= link_to(current_user.email, user_path(current_user.id)) %> </li>
             <% else %>
+              
+              
               <li class="user-link"><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %> </li>
+              <li class="user-link"><%= link_to "Sign up", new_user_registration_path %> </li>
+              <li class="user-link"><%= link_to "Sign in", new_user_session_path %> </li>
 
             <% end %>
 
