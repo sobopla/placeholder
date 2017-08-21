@@ -82,6 +82,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     formatador (0.2.5)
+    geocoder (1.1.9)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     guard (2.14.1)
@@ -289,6 +290,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  geocoder (~> 1.1.8)
   guard-rspec
   jbuilder (~> 2.5)
   launchy

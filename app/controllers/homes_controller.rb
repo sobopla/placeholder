@@ -1,12 +1,23 @@
-require 'rspotify'
-
 class HomesController < ApplicationController
 
   def index
+    # @city = request.location.city
+    @city = "Austin"
+    # if City.exists?(name: @city)
+    # SongkickHelper.get_city(@city)
+    # else
+
+    # end
   end
 
   def search
-    if Genre.exists?(genre: params[:user_input].downcase) # if what the user entered is a genre
+
+    binding.pry
+    if helpers.is_match(params[:user_input])
+
+    end
+
+    if Genre.exists?(genre: params[:user_input].downcase)
       genre = params[:user_input].downcase
       artists_playing, events_queried = SongkickHelper.get_events
       matched_artists = SpotifyHelper.genre_check(artists_playing, genre)
@@ -18,7 +29,7 @@ class HomesController < ApplicationController
     if request.xhr?
       partials = []
 
-      @matched_events.each do |show| 
+      @matched_events.each do |show|
         partials << render_to_string(partial: "display_show", locals: { show: show })
       end
 
@@ -31,5 +42,4 @@ class HomesController < ApplicationController
       return @matched_events
     end
   end
-
 end

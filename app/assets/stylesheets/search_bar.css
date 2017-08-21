@@ -4,6 +4,10 @@
   background-color: pink;
 }
 
+.display-details {
+  font-size: 14px;
+}
+
 .flexsearch--wrapper {
     height: auto;
     width: auto;
