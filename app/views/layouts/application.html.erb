@@ -26,18 +26,7 @@
           <ul style="list-style: none;">
             <% if !@index_view %>
             <li><%= link_to image_tag("bat.png", :alt => "home"), root_path, class: "logo" %></li>
-            <li><%= render "searchbar" %><!-- <div class="flexsearch">
-    <div class="flexsearch--wrapper">
-      <form class="flexsearch--form search-bar" action="/homes/search" method="post">
-        <div class="flexsearch--input-wrapper">
-          <input class="flexsearch--input" type="search" placeholder="search" name="user_input">
-        </div>
-        <button class="flexsearch--submit" type="submit">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
-      </form>
-    </div>
-</div> --></li>
+            <li class="searchbar-in-navbar"><%= render "searchbar" %></li>
             <% end %>
 
               <!-- <div id="user-info"> -->
