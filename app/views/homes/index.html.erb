@@ -1,6 +1,6 @@
 <div class="flexsearch">
     <div class="flexsearch--wrapper">
-      <form class="flexsearch--form search-bar" action="#" method="post">
+      <form class="flexsearch--form search-bar" action="homes/search" method="post">
         <div class="flexsearch--input-wrapper">
           <input class="flexsearch--input" type="search" placeholder="search" name="user_input">
         </div>
@@ -10,23 +10,3 @@
       </form>
     </div>
 </div>
-
-<% if @matched_events %>
-  <% @matched_events.each do |show| %>
-    <div class="band">
-      <img class="band-photo" src="http://i0.kym-cdn.com/entries/icons/original/000/021/065/gudetama.png" alt="whups">
-    </div>
-
-    <div class="show-details">
-      <ul>
-        <li><%= show[:title] %></li>
-        <li><%= show[:time] %></li>
-        <li><%= show[:venue] %></li>
-        <li><a href="<%= show[:link] %>"><img src="https://lh3.googleusercontent.com/8fNs6Rl3WXCiHqp3OgCPze8YnDi3bKpbMV41oWmDi01hcDtyz9w3xIcdjKFZqGCwhw=w300" alt="songkick" id="songkick"></a></li>
-      </ul>
-    </div>
-
-    <div id="border">
-    </div>
-  <% end %>
-<% end %>

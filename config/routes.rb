@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # resources :homes, only: [:index]
 
+  get 'homes/index' => 'homes#index'
+  post 'homes/search' => 'homes#search'
+
 
   root to: "homes#index"
 

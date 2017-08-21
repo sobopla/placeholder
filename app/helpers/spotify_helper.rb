@@ -28,7 +28,7 @@ module SpotifyHelper
 
   end
 
-  def self.genre_check(artists_array)
+  def self.genre_check(artists_array, user_genre)
     access_token = SpotifyHelper.get_token
 
     # go through the artists_array, for each do the following
@@ -40,8 +40,9 @@ module SpotifyHelper
       found_artist = Artist.find_by(name: artist) # return nil or first item
 
       if found_artist
-        artists << found_artist if found_artist.genres.pluck(:genre).any? { |word| word.include?("indie") }
+        artists << found_artist if found_artist.genres.pluck(:genre).any? { |word| word.include?(user_genre) }
       else # need to make a Spotify API call to get the Spotify ID
+        next if !!artist.match(/\W/)
         formatted_artist = artist.gsub(/ /, "+")
         uri = URI.parse("https://api.spotify.com/v1/search?q=#{formatted_artist}&type=artist")
         request = Net::HTTP::Get.new(uri)
@@ -59,27 +60,18 @@ module SpotifyHelper
         next if JSON.parse(response.body)["artists"]["items"].empty?
         id_from_spotify = JSON.parse(response.body)["artists"]["items"][0]["id"]
         genre_array = JSON.parse(response.body)["artists"]["items"][0]["genres"]
-        band_photo = JSON.parse(response.body)["artists"]["items"][0]["images"][0]["url"]
 
-        # id_from_spotify = "12Chz98pHFMPJEknJQMWvI"
-        # genre_array = ["alternative metal",
-        #                "alternative rock",
-        #                "garage rock",
-        #                "indie rock",
-        #                "modern rock",
-        #                "permanent wave",
-        #                "piano rock",
-        #                "post-grunge",
-        #                "rock"]
+        if !JSON.parse(response.body)["artists"]["items"][0]["images"].empty?
+          band_photo = JSON.parse(response.body)["artists"]["items"][0]["images"][0]["url"]
+        end
 
-        # add to our database
         new_artist = Artist.create(name: artist, spotify: id_from_spotify, image: band_photo)
           genre_array.each do |specific_genre|
             genre = Genre.find_or_create_by(genre: specific_genre)
             new_artist.genres << genre
           end
 
-        artists << new_artist if new_artist.genres.pluck(:genre).any? { |word| word.include?("indie") }
+        artists << new_artist if new_artist.genres.pluck(:genre).any? { |word| word.include?(user_genre) }
       end
     end
     return artists

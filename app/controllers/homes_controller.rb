@@ -3,18 +3,25 @@ require 'rspotify'
 class HomesController < ApplicationController
 
 
-
   def index
-    artists_playing, events_queried = SongkickHelper.get_events
+  end
 
-    matched_artists = ["Muse", "Hot Hot Heat", "Nikki Lane", "Deer Tip", "Deer Tick", "Derrick Carter"]
-    # artists = ["Forever the Sickest Kids"]
+  def search
+    if Genre.exists?(genre: params[:user_input].downcase) # if what the user entered is a genre
+      genre = params[:user_input].downcase
+      artists_playing, events_queried = SongkickHelper.get_events
+      matched_artists = SpotifyHelper.genre_check(artists_playing, genre)
+      @matched_events = EventMatchHelper.get_matched_events(matched_artists, events_queried)
+    else # artist entered
+      @matched_events = []
+      binding.pry
+    end
 
-    # return array of artists that fit the genre
-    # matched_artists = SpotifyHelper.genre_check(artists_playing)
+    if @matched_events.empty?
+      flash[:notice] = "no shows that match your criteria"
+    end
 
-    # array of events that matches the user's query which we will need to display
-    @matched_events = EventMatchHelper.get_matched_events(matched_artists, events_queried)
+    return @matched_events
   end
 
 

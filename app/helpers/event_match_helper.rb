@@ -7,13 +7,14 @@ module EventMatchHelper
       start = event.start
       link = event.uri
       venue = event.venue.display_name
-
       event.performances.each do |concert|
-        if artists.include?(concert.display_name)
+        if artists.pluck(:name).any? { |word| word.include?(concert.artist.display_name) }
+          artist = Artist.find_by(name: concert.artist.display_name)
           show = { title: show_name,
                     time: start.strftime("%l %M %p"),
                     link: link,
-                    venue: venue }
+                    venue: venue,
+                    image: artist.image }
           all_concerts << show
         end
       end
