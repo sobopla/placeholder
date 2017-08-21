@@ -64,7 +64,6 @@ module SpotifyHelper
         if !JSON.parse(response.body)["artists"]["items"][0]["images"].empty?
           band_photo = JSON.parse(response.body)["artists"]["items"][0]["images"][0]["url"]
         end
-
         new_artist = Artist.create(name: artist, spotify: id_from_spotify, image: band_photo)
           genre_array.each do |specific_genre|
             genre = Genre.find_or_create_by(genre: specific_genre)

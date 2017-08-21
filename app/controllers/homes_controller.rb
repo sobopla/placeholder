@@ -14,7 +14,6 @@ class HomesController < ApplicationController
       @matched_events = EventMatchHelper.get_matched_events(matched_artists, events_queried)
     else # artist entered
       @matched_events = []
-      binding.pry
     end
 
     if @matched_events.empty?

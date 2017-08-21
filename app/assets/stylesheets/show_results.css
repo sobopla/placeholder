@@ -4,20 +4,21 @@
 }
 
 .band-photo {
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
 }
 
 .show-details {
-  font-size: 50px;
+  font-size: 18px;
   font-family: 'Quicksand', sans-serif;
   float: right;
   display: inline-block;
+  width: 75%;
 }
 
 #songkick {
-  height: 48px;
-  width: 48px;
+  height: 12px;
+  width: 12px;
 }
 
 #border {
