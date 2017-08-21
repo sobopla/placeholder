@@ -22,13 +22,15 @@
 
 .flexsearch--input {
   width: 100%;
+  margin: auto;
 }
 
 /***********************
  * Configurable Styles *
  ***********************/
 .flexsearch {
-  padding: 0 25px 0 200px; /* Padding for other horizontal elements */
+  padding: 0 20px 0 20px;
+  margin: auto;
 }
 
 .flexsearch--input {
