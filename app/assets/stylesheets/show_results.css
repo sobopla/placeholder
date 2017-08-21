@@ -1,3 +1,7 @@
+.container{
+  width: 95%;
+}
+
 .band {
   float: left;
   display: inline-block;
@@ -6,6 +10,8 @@
 .band-photo {
   width: 150px;
   height: 150px;
+  padding: 20px;
+  margin-left: 100px;
 }
 
 .show-details {
@@ -13,7 +19,8 @@
   font-family: 'Quicksand', sans-serif;
   float: right;
   display: inline-block;
-  width: 75%;
+  width: 50%;
+  margin-right: 100px;
 }
 
 #songkick {
@@ -23,8 +30,11 @@
 
 #border {
   clear: left;
-  border: 5px dashed #DB7093;
+  border-bottom: 2px dashed #DB7093;
   width: auto;
+  padding-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 li {
