@@ -34,18 +34,18 @@
 }
 
 .flexsearch--input {
+  font-family: 'Quicksand', sans-serif;
   -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     height: 60px;
-  padding: 0 46px 0 10px;
+  padding: 0 46px 0 30px;
     border-color: #888;
   border-radius: 35px; /* (height/2) + border-width */
   border-style: solid;
     border-width: 5px;
   margin-top: 15px;
   color: #333;
-  font-family: 'Helvetica', sans-serif;
     font-size: 26px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -64,8 +64,8 @@
   margin-right: 5px; /* border-width */
     background: transparent;
   color: #888;
-  font-family: 'Helvetica', sans-serif;
   font-size: 40px;
+  font-family: 'Quicksand', sans-serif;
   line-height: 60px;
 }
 
@@ -92,16 +92,3 @@ input:-moz-placeholder {
 }
 
 
-/****************
- * Pretify demo *
- ****************/
-.h1 {
-  float: left;
-  margin: 25px;
-  color: #333;
-  font-family: 'Helvetica', sans-serif;
-  font-size: 45px;
-  font-weight: bold;
-  line-height: 45px;
-  text-align: center;
-}
