@@ -1,6 +1,15 @@
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
-<% end %>
+<div class="flexsearch">
+    <div class="flexsearch--wrapper">
+      <form class="flexsearch--form search-bar" action="search" method="post">
+        <div class="flexsearch--input-wrapper">
+          <input class="flexsearch--input" type="search" placeholder="search" name="user_input">
+        </div>
+        <button class="flexsearch--submit" type="submit">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+</div>
 
 <% if @matched_events %>
   <% @matched_events.each do |show| %>
@@ -21,3 +30,5 @@
     </div>
   <% end %>
 <% end %>
+
+

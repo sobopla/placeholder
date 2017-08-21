@@ -11,7 +11,7 @@ module EventMatchHelper
         if artists.pluck(:name).any? { |word| word.include?(concert.artist.display_name) }
           artist = Artist.find_by(name: concert.artist.display_name)
           show = { title: show_name,
-                    time: start.strftime("%l %M %p"),
+                    time: start.strftime("%l:%M %p"),
                     link: link,
                     venue: venue,
                     image: artist.image }
