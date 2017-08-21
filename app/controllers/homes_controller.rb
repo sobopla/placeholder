@@ -20,7 +20,14 @@ class HomesController < ApplicationController
       flash[:notice] = "no shows that match your criteria"
     end
 
-    return @matched_events
+    if request.xhr?
+      # problem if there is more than one event
+      @matched_events.each do |show| 
+        render partial: "display_show", locals: { show: show }
+      end
+    else
+      return @matched_events
+    end
   end
 
 
