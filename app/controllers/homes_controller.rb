@@ -4,6 +4,7 @@ class HomesController < ApplicationController
 
 
   def index
+    @index_view = true
   end
 
   def search
@@ -11,6 +12,8 @@ class HomesController < ApplicationController
       page_counter = params[:page].to_i
 
       min_date, max_date = PageHelper.get_page(page_counter)
+
+    @index_view = false
 
     if Genre.exists?(genre: params[:user_input].downcase) # if what the user entered is a genre
       genre = params[:user_input].downcase
