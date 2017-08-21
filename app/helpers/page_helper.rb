@@ -4,7 +4,7 @@ module PageHelper
     case page_counter
       when 0
         min_date = 1.hour.from_now.strftime("%Y-%m-%d")
-        max_date = 1.month.from_now.strftime("%Y-%m-%d")
+        max_date = 1.day.from_now.strftime("%Y-%m-%d")
       when 1
         min_date = 1.month.from_now.strftime("%Y-%m-%d")
         max_date = 2.months.from_now.strftime("%Y-%m-%d")
