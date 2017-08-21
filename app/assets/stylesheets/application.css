@@ -52,7 +52,8 @@
 
 .main {
   /*width: 80%;*/
-  margin-bottom: 50px;
+  height: 363px;
+  /*margin-bottom: 50px;*/
 }
 
 .footer {
@@ -102,5 +103,7 @@
     text-align: left;
 }
 
-
+.replace-me-with-something-better {
+  height:300px;
+}
 

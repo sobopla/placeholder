@@ -4,9 +4,11 @@ class HomesController < ApplicationController
 
 
   def index
+    @index_view = true
   end
 
   def search
+    @index_view = false
     if Genre.exists?(genre: params[:user_input].downcase) # if what the user entered is a genre
       genre = params[:user_input].downcase
       artists_playing, events_queried = SongkickHelper.get_events
