@@ -41,8 +41,6 @@ module SongkickHelper
     parsed_response["resultsPage"]["results"]["location"].each do |city|
       City.create(songkick: city["metroArea"]["id"], name: city["metroArea"]["displayName"])
     end
-
-
   end
 end
 

@@ -11,7 +11,7 @@ module HomesHelper
   end
 
   def add_genre_to_user(genre)
-    current_user.genres << Genre.find_by(genre: user_genre) if !current_user.all_genres.include?(user_genre)
+    current_user.genres << Genre.find_by(genre: genre) if !current_user.all_genres.include?(genre)
   end
 
 end
