@@ -1,5 +1,15 @@
-
-<%= render "searchbar" %>
+<div class="flexsearch">
+    <div class="flexsearch--wrapper">
+      <form class="flexsearch--form search-bar" action="search" method="post">
+        <div class="flexsearch--input-wrapper">
+          <input class="flexsearch--input" type="search" placeholder="search" name="user_input">
+        </div>
+        <button class="flexsearch--submit" type="submit">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+</div>
 
 <div class="loading">
   <span>boppin'</span>
@@ -7,7 +17,4 @@
 
 <div class="results"></div>
 
-<%= @city %>
-
-<button data-page="0" type="button" class="load_more">one more month of shows please!!</button>
-
+<!-- <button data-page="0" type="button" class="load_more" id="load-more-button"><img src="app/assets/images/load_more.png" alt="whups"></button> -->
