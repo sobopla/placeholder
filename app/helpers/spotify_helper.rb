@@ -38,7 +38,7 @@ module SpotifyHelper
       # artist.slice!(-1,1) if artist[-1] == " "
 
       found_artist = Artist.find_by(name: artist) # return nil or first item
-    binding.pry
+
       if found_artist
         artists << found_artist if found_artist.genres.pluck(:genre).any? { |word| word.include?(user_genre) }
       else # need to make a Spotify API call to get the Spotify ID
@@ -57,7 +57,7 @@ module SpotifyHelper
         end
 
         # if artist cannot be found in Spotify database
-        binding.pry
+
         next if JSON.parse(response.body)["artists"]["items"].empty?
         id_from_spotify = JSON.parse(response.body)["artists"]["items"][0]["id"]
         genre_array = JSON.parse(response.body)["artists"]["items"][0]["genres"]
@@ -70,10 +70,10 @@ module SpotifyHelper
             genre = Genre.find_or_create_by(genre: specific_genre)
             new_artist.genres << genre
           end
-        binding.pry
+
         artists << new_artist if new_artist.genres.pluck(:genre).any? { |word| word.include?(user_genre) }
       end
-      binding.pry
+
     end
     return artists
   end
