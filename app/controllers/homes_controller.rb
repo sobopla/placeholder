@@ -16,17 +16,18 @@ class HomesController < ApplicationController
   end
 
   def search
-
+    binding.pry
     if helpers.is_match(params[:user_input])
       matched_phrase = params[:user_input].slice!(/\d+ months from now/) # "5 months from now"
-      months_later = matched_phrase[0].to_i # 5
+      months_later = matched_phrase[0].to_i # 5 # this will have an error if it is 00 months
       user_genre = params[:user_input] # indie
-      user_genre = user_genre.chop if user_genre[-1] == " " # remove space
       min_date, max_date = PageHelper.get_page(months_later)
     else
       user_genre = params[:user_input]
       min_date, max_date = PageHelper.get_page(page_counter)
     end
+
+    user_genre = user_genre.chop if user_genre[-1] == " "
     if Genre.exists?(genre: user_genre.downcase) # if what the user entered is a genre
       page_counter = params[:page].to_i
       artists_playing, events_queried = SongkickHelper.get_events(min_date, max_date)
