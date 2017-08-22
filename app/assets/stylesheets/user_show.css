@@ -19,7 +19,41 @@ div #user-show {
   display: none;
 }
 
+.container.devise-container {
+  font-family: 'Quicksand', sans-serif;
 
+}
+
+#new_user {
+  background-color: #61BDB6;
+  width: 400px;
+  height: 100%;
+  padding: 50px;
+  font-size: 2em;
+  }
+
+.field-remember {
+  /*background-color: red;*/
+  font-size: .6em;
+}
+
+.field-password {
+  /*background-color: red;*/
+  font-size: .8em;
+}
+
+.new_user #error_explanation {
+  font-size: .5em;
+  color: black;
+  background-color: lightgray;
+  padding: 5px;
+}
+
+#error_explanation > h2 {
+  font-size: 1em;
+  font-weight: bold;
+  color: black;
+  }
 
 /*.band-photo {
   width: 150px;
