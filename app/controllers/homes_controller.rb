@@ -18,24 +18,27 @@ class HomesController < ApplicationController
   def search
 
     if helpers.is_match(params[:user_input])
-
-    end
-
-    if Genre.exists?(genre: params[:user_input].downcase) # if what the user entered is a genre
-      page_counter = params[:page].to_i
+      matched_phrase = params[:user_input].slice!(/\d+ months from now/) # "5 months from now"
+      months_later = matched_phrase[0].to_i # 5
+      user_genre = params[:user_input] # indie
+      user_genre = user_genre.chop if user_genre[-1] == " " # remove space
+      min_date, max_date = PageHelper.get_page(months_later)
+    else
+      user_genre = params[:user_input]
       min_date, max_date = PageHelper.get_page(page_counter)
-
-      genre = params[:user_input].downcase
+    end
+    if Genre.exists?(genre: user_genre.downcase) # if what the user entered is a genre
+      page_counter = params[:page].to_i
       artists_playing, events_queried = SongkickHelper.get_events(min_date, max_date)
-      matched_artists = SpotifyHelper.genre_check(artists_playing, genre)
+      matched_artists = SpotifyHelper.genre_check(artists_playing, user_genre)
       @matched_events = EventMatchHelper.get_matched_events(matched_artists, events_queried)
+      binding.pry
     else # artist entered
       @matched_events = []
     end
 
     if request.xhr?
       partials = []
-
       @matched_events.each do |show|
         partials << render_to_string(partial: "display_show", locals: { show: show })
       end
