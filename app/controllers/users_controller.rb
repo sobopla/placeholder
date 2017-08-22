@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   def show
+
+
+
+
+    # working but slow
     i = 0
     @upcoming_shows = []
     current_user.all_genres.each do |genre|
