@@ -28,6 +28,7 @@ class HomesController < ApplicationController
     end
 
     user_genre = user_genre.chop if user_genre[-1] == " "
+    
     if Genre.exists?(genre: user_genre.downcase) # if what the user entered is a genre
       page_counter = params[:page].to_i
       artists_playing, events_queried = SongkickHelper.get_events(min_date, max_date)
