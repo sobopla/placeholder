@@ -1,21 +1,30 @@
-require 'rspotify'
-
 class HomesController < ApplicationController
 
 
   def index
+
+    # @city = request.location.city
+    @city = "Austin"
+    # if City.exists?(name: @city)
+    # SongkickHelper.get_city(@city)
+    # else
+
+    # end
+
     @index_view = true
+
   end
 
   def search
 
-      page_counter = params[:page].to_i
+    if helpers.is_match(params[:user_input])
 
-      min_date, max_date = PageHelper.get_page(page_counter)
-
-    @index_view = false
+    end
 
     if Genre.exists?(genre: params[:user_input].downcase) # if what the user entered is a genre
+      page_counter = params[:page].to_i
+      min_date, max_date = PageHelper.get_page(page_counter)
+
       genre = params[:user_input].downcase
       artists_playing, events_queried = SongkickHelper.get_events(min_date, max_date)
       matched_artists = SpotifyHelper.genre_check(artists_playing, genre)
@@ -39,6 +48,6 @@ class HomesController < ApplicationController
     else
       return @matched_events
     end
+    @index_view = false
   end
-
 end

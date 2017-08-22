@@ -1,3 +1,5 @@
+require 'spoof_ip'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -51,4 +53,18 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # module Geocoder
+  #   module Request
+  #     def location
+  #       Geocoder.search("38.140.212.66").first
+  #       # ENV['HTTP_X_REAL_IP'] = '38.140.212.66'
+  #     end
+  #   end
+  # end
+
+  # config.middleware.use(SpoofIp, '64.71.24.19')
+  # "50.78.167.161" Seattle
+  # "71.212.123.5" Denver or Renton, WA
+
 end
