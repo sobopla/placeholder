@@ -1,23 +1,19 @@
-This is the users show profile page
-find me in app/views/users/show
 <div class="profile-page">
-  <% if current_user && current_user.id == @user.id %>
-    <h1 style="padding-bottom: 10px;">welcome to your home page</h1>
-  <% else %>
-    <h1 style="padding-bottom: 10px;">do not snoop at another person's page!</h1>
-  <% end %>
+    <h1>welcome to your home page</h1>
 
+    <h2>upcoming shows from your previous searches</h2>
 
-
-
-
-
-
-
-    <% if current_user && current_user.id == @user.id %>
-      <h6><%= link_to('edit account', edit_user_registration_path) %></h6>
+    <% @upcoming_shows.each do |concert| %>
+      <h2><%= concert[:genre] %></h2>
+      <% concert[:shows].each do |show| %>
+        <div id="user-show" class="five.columns">
+          <%= render partial: 'homes/display_show', locals: { show: show } %>
+        </div>
+      <% end %>
     <% end %>
 
-
-
+    <h6><%= link_to('edit account', edit_user_registration_path) %></h6>
 </div>
+
+
+

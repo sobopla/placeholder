@@ -1,0 +1,38 @@
+div #user-show {
+  display: inline-block;
+}
+
+#user-show .band {
+  background-color: red;
+  margin: auto;
+  float: left;
+}
+
+#user-show .show-details {
+  background-color: blue;
+  text-align: left;
+  margin: auto;
+  float: left;
+}
+
+#user-show #border {
+  display: none;
+}
+
+
+
+/*.band-photo {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  margin-left: 100px;
+}
+
+.show-details {
+  font-size: 18px;
+  font-family: 'Quicksand', sans-serif;
+  float: right;
+  display: inline-block;
+  width: 50%;
+  margin-right: 100px;
+}*/

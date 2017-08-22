@@ -6,6 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
+  def all_genres
+    self.genres.pluck(:genre).uniq!
+  end
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user
@@ -16,8 +20,7 @@ class User < ApplicationRecord
         password: Devise.friendly_token[0, 20]
       )
     end
-
-    user
+    return user
   end
 
   def self.new_with_session(params, session)
