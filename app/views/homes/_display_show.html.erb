@@ -1,14 +1,16 @@
-<div class="band">
-  <img class="band-photo" src="<%= show[:image] %>" alt="http://i0.kym-cdn.com/entries/icons/original/000/021/065/gudetama.png">
-</div>
+<div class="band-results">
+  <div class="band">
+    <img class="band-photo" src="<%= show[:image] %>" alt="band photo">
+  </div>
 
-<div class="show-details">
-  <ul>
-    <li><h3><%= show[:artist] %></h3></li>
-    <li>playing at <%= show[:venue] %></li>
-    <li>on <%= show[:time] %></li>
-    <li><a href="<%= show[:link] %>"><img src="https://lh3.googleusercontent.com/8fNs6Rl3WXCiHqp3OgCPze8YnDi3bKpbMV41oWmDi01hcDtyz9w3xIcdjKFZqGCwhw=w300" alt="songkick" id="songkick"></a></li>
-  </ul>
-</div>
+  <div class="show-details">
+    <ul>
+      <li><h3><%= show[:artist] %></h3></li>
+      <li>playing at <%= show[:venue] %></li>
+      <li>on <%= show[:time] %></li>
+      <li><a href="<%= show[:link] %>"><img src="https://lh3.googleusercontent.com/8fNs6Rl3WXCiHqp3OgCPze8YnDi3bKpbMV41oWmDi01hcDtyz9w3xIcdjKFZqGCwhw=w300" alt="songkick" id="songkick"></a></li>
+    </ul>
+  </div>
 
-<div id="border"></div>
+  <div id="border"></div>
+</div>

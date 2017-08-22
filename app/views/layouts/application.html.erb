@@ -21,8 +21,8 @@
         <div class="twelve columns">
           <nav>
             <ul>
-              <li><%= link_to image_tag("logo.png", :alt => "blahblah"), root_path, class: "logo" %></li>
               <% if !@index_view %>
+                <li><%= link_to image_tag("logo.png", :alt => "home"), root_path, class: "logo" %></li>
                 <li class="searchbar-in-navbar"><%= render "searchbar" %></li>
               <% end %>
 
@@ -39,9 +39,6 @@
       </div>
     </div>
 
-    <div class="main">
-
-    </div>
     <div id="container">
       <p class="notice"><%= notice %></p>
       <%= yield %>

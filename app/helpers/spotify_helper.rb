@@ -1,6 +1,5 @@
 require 'net/http'
 require 'json'
-# require 'uri'
 
 module SpotifyHelper
 
@@ -50,13 +49,13 @@ module SpotifyHelper
     artists_array.each do |artist|
 
       found_artist = Artist.find_by(name: artist) # return nil or first item
+
       if found_artist
         artists << found_artist if found_artist.genres.pluck(:genre).any? { |word| word.include?(user_genre) }
       else # need to make a Spotify API call to get the Spotify ID
         next if !!artist.match(/[^\w\s]/) # skip if artist has funky characters
 
         spotify_artist_info = JSON.parse(api_call(artist).body)["artists"]["items"]
-
         next if spotify_artist_info.empty? # skip bands with no information
 
         id_from_spotify = spotify_artist_info[0]["id"]
@@ -71,6 +70,7 @@ module SpotifyHelper
             genre = Genre.find_or_create_by(genre: specific_genre)
             new_artist.genres << genre
           end
+
         artists << new_artist if new_artist.genres.pluck(:genre).any? { |word| word.include?(user_genre) }
       end
     end

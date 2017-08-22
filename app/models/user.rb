@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   def all_genres
-    self.genres.pluck(:genre).uniq!
+    self.genres.pluck(:genre).uniq
   end
 
   def self.find_for_oauth(auth)
