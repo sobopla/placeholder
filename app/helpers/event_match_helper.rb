@@ -6,7 +6,6 @@ module EventMatchHelper
       start = modify_start(event.start)
       link = event.uri
       venue = event.venue.display_name
-
       event.performances.each do |concert|
         if artists.pluck(:name).any? { |word| word.include?(concert.artist.display_name) }
           artist = Artist.find_by(name: concert.artist.display_name)

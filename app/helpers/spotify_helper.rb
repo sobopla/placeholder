@@ -62,7 +62,7 @@ module SpotifyHelper
     return artists
   end
 
-  def update_new_artist(new_artist, spotify_artist_info)
+  def self.update_new_artist(new_artist, spotify_artist_info)
     new_artist.image = spotify_artist_info[0]["images"][0]["url"] if !spotify_artist_info[0]["images"].empty? # skip if bands do not have image (from Spotify)
     new_artist.spotify = spotify_artist_info[0]["id"]
     genre_array = spotify_artist_info[0]["genres"]
@@ -71,6 +71,7 @@ module SpotifyHelper
       genre = Genre.find_or_create_by(genre: specific_genre)
       new_artist.genres << genre
     end
+    new_artist.save
   end
 
 

@@ -10,19 +10,19 @@ module HomesHelper
     current_user.genres << Genre.find_by(genre: genre) if !current_user.all_genres.include?(genre)
   end
 
-  def add_to_user_events(events)
+  def add_to_user_events(events, genre)
     events.each do |event|
-      return if current_user.events.length >= 3
+      return if current_user.events.where(genre: genre).length >= 5
       event = Event.new(event)
-      event.genre = session[:user_search]
+      event.genre = genre
       event.user_id = current_user.id
       current_user.events << event if event.save
     end
   end
 
-  def minus_five_events
-    current_user.delete_expired_events
-    missing = 5 - current_user.events.where(genre: session[:user_search]).count
+  def minus_five_events(genre)
+    current_user.delete_expired_events(genre)
+    missing = 5 - current_user.events.where(genre: genre).count
     return missing
   end
 
