@@ -1,6 +1,6 @@
 module SongkickHelper
 
-  # def self.get_events(city, time)
+  # def self.get_events(min_date, max_date, city)
   def self.get_events(min_date, max_date)
     songkick = Songkickr::Remote.new "CdiRCPNwC1rX99q1" # Songkick key
 
@@ -26,15 +26,15 @@ module SongkickHelper
 
   def self.get_city(user_city)
     uri = URI.parse("http://api.songkick.com/api/3.0/search/locations.json?query=#{user_city}&apikey=CdiRCPNwC1rX99q1")
-        request = Net::HTTP::Get.new(uri)
+    request = Net::HTTP::Get.new(uri)
 
-        req_options = {
-          use_ssl: uri.scheme == "https",
-        }
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
 
-        response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-          http.request(request)
-        end
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
 
     parsed_response = JSON.parse(response.body)
 

@@ -1,9 +1,5 @@
 module HomesHelper
 
-  def is_match(string)
-    !!(string =~ /\d+ months from now/)
-  end
-
   def total_months(string)
     matched_phrase = string.slice!(/\d+ months from now/) # "5 months from now"
     months_later = string.slice!(/\d+ months from now/).slice!(/\d{1,2}/)
@@ -14,13 +10,13 @@ module HomesHelper
     current_user.genres << Genre.find_by(genre: genre) if !current_user.all_genres.include?(genre)
   end
 
-  def add_to_user_events(events) 
+  def add_to_user_events(events)
     events.each do |event|
+      return if current_user.events.length >= 3
       event = Event.new(event)
       event.genre = session[:user_search]
       event.user_id = current_user.id
       current_user.events << event if event.save
-      binding.pry
     end
   end
 
@@ -29,4 +25,7 @@ module HomesHelper
     missing = 5 - current_user.events.where(genre: session[:user_search]).count
     return missing
   end
+
+
+
 end

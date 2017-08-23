@@ -1,6 +1,6 @@
 module EventMatchHelper
 
-  def self.get_matched_events(artists, events, type)
+  def self.get_matched_events(artists, events)
     all_concerts = []
     events.each do |event|
       start = modify_start(event.start)
@@ -18,7 +18,6 @@ module EventMatchHelper
                     image: artist.image }
           all_concerts << show
         end
-        return all_concerts if type == "user" && all_concerts.length == 5
       end
     end
     return all_concerts
