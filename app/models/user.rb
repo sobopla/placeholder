@@ -2,6 +2,8 @@ class User < ApplicationRecord
 
   has_many :searches
   has_many :genres, through: :searches
+  has_many :events
+  # is there a way to limit events?
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]

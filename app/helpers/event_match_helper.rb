@@ -12,7 +12,7 @@ module EventMatchHelper
           artist = Artist.find_by(name: concert.artist.display_name)
           show = {  title: concert.artist.display_name,
                     artist: concert.artist.display_name,
-                    time: start,
+                    start: start,
                     link: link,
                     venue: venue,
                     image: artist.image }

@@ -14,4 +14,15 @@ module HomesHelper
     current_user.genres << Genre.find_by(genre: genre) if !current_user.all_genres.include?(genre)
   end
 
+  def add_to_user_events(events) 
+    events.each do |event|
+      event = Event.create(event)
+      event.genre = session[:user_search]
+      current_user.events << event
+      # User.first.events.where(genre: "indie").count
+      # .destroy
+      # limit 5
+      # binding.pry
+    end
+  end
 end

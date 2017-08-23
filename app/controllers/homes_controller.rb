@@ -10,6 +10,8 @@ class HomesController < ApplicationController
     # end
   end
 
+
+
   def search
     @index_view = false
 
@@ -23,14 +25,18 @@ class HomesController < ApplicationController
     min_date, max_date = PageHelper.get_page(page_counter)
     user_genre = user_genre.chop if user_genre[-1] == " "
     session[:user_search] = user_genre
-
-    helpers.add_genre_to_user(user_genre) if current_user
+    
 
     if Genre.exists?(genre: user_genre.downcase) # do we want to get rid of this because only searching by genre
       artists_playing, events_queried = SongkickHelper.get_events(min_date, max_date)
       matched_artists = SpotifyHelper.genre_check(artists_playing, user_genre)
       @matched_events = EventMatchHelper.get_matched_events(matched_artists, events_queried, "general")
     else # genre entered is not in database
+    end
+
+    if current_user
+      helpers.add_genre_to_user(user_genre)
+      helpers.add_to_user_events(@matched_events.first(5)) 
     end
 
     if request.xhr?
