@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :searches
   has_many :genres, through: :searches
   has_many :events
+  validates_with EventsValidator
   # is there a way to limit events?
 
   devise :database_authenticatable, :registerable,
@@ -12,6 +13,7 @@ class User < ApplicationRecord
     self.genres.pluck(:genre).uniq
   end
 
+  # why this no work, deleting stuff that it is not supposed to be deleting
   def delete_expired_events
     self.events.each do |event|
       binding.pry

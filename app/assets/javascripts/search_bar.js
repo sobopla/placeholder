@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
+  
 // HIDING LOGO AND SEARCH BAR ON SUBMIT TO SHOW THE BOPPIN BEFORE RESULTS LOAD
-
   $("form.search-bar").on("submit", function(){
     $("div.logo-to-hide img").hide();
     $("form").hide();
