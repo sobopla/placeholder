@@ -1,20 +1,10 @@
-<div class="flexsearch">
-    <div class="flexsearch--wrapper">
-      <form class="flexsearch--form search-bar" action="search" method="post">
-        <div class="flexsearch--input-wrapper">
-          <input class="flexsearch--input" type="search" placeholder="search" name="user_input">
-        </div>
-        <button class="flexsearch--submit" type="submit">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
-      </form>
-    </div>
-</div>
-
-<div class="loading">
+<div class="loading hidden">
   <span>boppin'</span>
 </div>
 
-<div class="results"></div>
+<div class="logo-to-hide">
+  <center><%= image_tag "logo.png" %></center>
+</div>
 
-<!-- <button data-page="0" type="button" class="load_more" id="load-more-button"><img src="app/assets/images/load_more.png" alt="whups"></button> -->
+<%= render "searchbar" %>
+

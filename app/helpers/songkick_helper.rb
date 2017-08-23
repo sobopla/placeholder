@@ -5,8 +5,8 @@ module SongkickHelper
     songkick = Songkickr::Remote.new "CdiRCPNwC1rX99q1" # Songkick key
 
     pages = songkick.events(min_date: min_date, max_date: max_date,location: "sk:9179", page: 1000)
+    total_pages = (pages.total_entries / 50) + 1
 
-    total_pages = (pages.total_entries / 50) + 1 # tells how many pages of events there are
     i = 1
     artists = []
     events = []
@@ -41,8 +41,6 @@ module SongkickHelper
     parsed_response["resultsPage"]["results"]["location"].each do |city|
       City.create(songkick: city["metroArea"]["id"], name: city["metroArea"]["displayName"])
     end
-
-
   end
 end
 
