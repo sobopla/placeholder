@@ -1,7 +1,7 @@
 module SanitizeHelper
 
   def self.sanitize_input(input)
-    if is_match(input)
+    if is_match(input[:user_input])
       page_counter = input[:user_input].slice!(/\d+ months from now/).slice!(/\d{1,2}/).to_i
       user_genre = input[:user_input]
     else

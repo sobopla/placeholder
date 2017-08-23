@@ -23,7 +23,7 @@ class HomesController < ApplicationController
       @matched_events = EventMatchHelper.get_matched_events(matched_artists, events_queried)
     else # genre entered is not in database
     end
-
+    binding.pry
     if current_user
       helpers.add_genre_to_user(user_genre)
       helpers.add_to_user_events(@matched_events.first(helpers.minus_five_events(user_genre)), user_genre)
