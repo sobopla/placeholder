@@ -8,15 +8,15 @@
     <% if @upcoming_shows %>
     <h2 class="user-display">upcoming shows from your previous searches</h2>
       <% @upcoming_shows.each do |concert| %>
-      <table>
-        <tr>
-          <h2 class="user-show"><%= concert[:genre] %></h2>
-            <% concert[:shows].each do |show| %>
-              <div id="user-show">
-                <td class="user-show"><%= render partial: 'homes/display_show', locals: { show: show } %></td>
-              </div>
-            <% end %>
-        <% end %>
+        <table>
+          <tr>
+            <h2 class="user-show"><%= concert[:genre] %></h2>
+              <% concert[:shows].each do |show| %>
+                <div id="user-show">
+                  <td class="user-show"><%= render partial: 'homes/display_show', locals: { show: show } %></td>
+                </div>
+              <% end %>
+          <% end %>
       <% end %>
   <% end %>
 </div>
