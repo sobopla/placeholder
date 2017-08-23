@@ -52,7 +52,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara', "~> 2.5"
   gem 'launchy'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  # gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-rspec', require: false
   gem 'factory_girl_rails'
   gem 'database_cleaner'

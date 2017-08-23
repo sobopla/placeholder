@@ -320,7 +320,6 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.3)
   rails-controller-testing
-  rb-fsevent
   rspec-collection_matchers
   rspec-rails
   rspotify
@@ -335,4 +334,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.3
+   1.15.4
