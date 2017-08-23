@@ -1,23 +1,21 @@
 module PageHelper
 
   def self.get_page(page_counter)
-
     if page_counter == 0
       min_date = 1.hour.from_now.strftime("%Y-%m-%d")
       max_date = 1.month.from_now.strftime("%Y-%m-%d")
     else # 1
       min_date = page_counter.months.from_now.strftime("%Y-%m-%d")
       max_date = (page_counter + 1).months.from_now.strftime("%Y-%m-%d")
-    end
-  return min_date, max_date
-
 
     # what about 2 weeks at at time
     # case page_counter
     #   when 0
-
+    #     min_date = 1.hour.from_now.strftime("%Y-%m-%d")
+    #     max_date = 5.days.from_now.strftime("%Y-%m-%d")
     #   when 1
-
+    #     min_date = 6.days.from_now.strftime("%Y-%m-%d")
+    #     max_date = 12.days.from_now.strftime("%Y-%m-%d")
     #   when 2
     #     min_date = 2.months.from_now.strftime("%Y-%m-%d")
     #     max_date = 3.months.from_now.strftime("%Y-%m-%d")
@@ -30,8 +28,9 @@ module PageHelper
     #   when 5
     #     min_date = 5.months.from_now.strftime("%Y-%m-%d")
     #     max_date = 6.months.from_now.strftime("%Y-%m-%d")
-    # end
 
+    # end
+    return min_date, max_date
   end
 
   def self.days_away(number)
