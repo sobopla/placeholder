@@ -1,6 +1,7 @@
 module PageHelper
 
   def self.get_page(page_counter)
+    # what about 2 weeks at at time
     case page_counter
       when 0
         min_date = 1.hour.from_now.strftime("%Y-%m-%d")

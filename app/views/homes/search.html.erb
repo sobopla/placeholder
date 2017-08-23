@@ -1,8 +1,7 @@
 <% if @matched_events %>
   <% @matched_events.each do |show| %>
     <%= render partial: "display_show", locals: { show: show } %>
-
-    <% end %>
+  <% end %>
 <% end %>
 
 <% if @matched_events.empty? %>

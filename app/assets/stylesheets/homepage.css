@@ -24,7 +24,6 @@
 .nav-bar .logo {
   float: left;
   padding-left: 10px;
-
   vertical-align: center;
   background-color: #61BDB6;
   padding: none;
@@ -38,7 +37,6 @@
 }
 
 .footer {
-/*  position: relative;*/
   min-height: 100%;
   padding-top: 60px;
 }
