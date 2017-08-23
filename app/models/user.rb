@@ -12,6 +12,13 @@ class User < ApplicationRecord
     self.genres.pluck(:genre).uniq
   end
 
+  def delete_expired_events
+    self.events.each do |event|
+      binding.pry
+      event.delete if Time.now > event.start
+    end
+  end
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user

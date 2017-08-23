@@ -16,13 +16,17 @@ module HomesHelper
 
   def add_to_user_events(events) 
     events.each do |event|
-      event = Event.create(event)
+      event = Event.new(event)
       event.genre = session[:user_search]
-      current_user.events << event
-      # User.first.events.where(genre: "indie").count
-      # .destroy
-      # limit 5
-      # binding.pry
+      event.user_id = current_user.id
+      current_user.events << event if event.save
+      binding.pry
     end
+  end
+
+  def minus_five_events
+    current_user.delete_expired_events
+    missing = 5 - current_user.events.where(genre: session[:user_search]).count
+    return missing
   end
 end
