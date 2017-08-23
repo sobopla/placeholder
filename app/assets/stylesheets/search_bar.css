@@ -1,6 +1,3 @@
-/* another option for search bar https://codepen.io/Memphis/pen/ihjDu */
-
-
 .display-details {
   font-size: 14px;
 }
@@ -30,6 +27,7 @@
 .flexsearch--input {
   width: 100%;
   margin: auto;
+  font-size: 100px;
 }
 
 /***********************
@@ -54,7 +52,7 @@
     border-width: 5px;
   margin-top: 15px;
   color: #61BDB6;
-    font-size: 26px;
+    font-size: 20px;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
@@ -103,3 +101,9 @@ input:-moz-placeholder {
   color: #FBD3E7;
 }
 
+.error-no-match {
+  font-family: 'Quicksand', sans-serif;
+  padding: 30px;
+  text-align: center;
+  color: red;
+}

@@ -24,8 +24,8 @@
 }
 
 #songkick {
-  height: 12px;
-  width: 12px;
+  height: 30px;
+  width: 30px;
 }
 
 #border {
@@ -39,4 +39,8 @@
 
 li {
   list-style: none;
+}
+
+.band-results {
+  padding-top: 25px;
 }
