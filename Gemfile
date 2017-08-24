@@ -10,7 +10,7 @@ gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 gem 'geocoder', '~> 1.1.8'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -69,8 +69,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
