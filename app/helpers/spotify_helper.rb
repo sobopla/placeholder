@@ -47,6 +47,7 @@ module SpotifyHelper
     access_token = SpotifyHelper.get_token
 
     artists_array.each do |artist|
+      next if artist == ""
       found_artist = Artist.find_by(name: artist) # return nil or first item
       if found_artist
         artists << found_artist if found_artist.has_genre?(user_genre)
