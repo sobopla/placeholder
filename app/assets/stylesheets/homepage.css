@@ -23,11 +23,12 @@
 
 .nav-bar .logo {
   float: left;
-  padding-left: 10px;
+  padding-left: 20px;
   vertical-align: center;
   background-color: #61BDB6;
-  padding: none;
+  /*padding: none;*//* see if this caused no padding on heroku*/
 }
+
 
 .nav-bar .user-link {
   float: right;
@@ -71,6 +72,13 @@
     text-align: left;
 }
 
+/*edit account page*/
+.edit_user  {
+  display: block;
+  text-align: left;
+  width: 50%;
+}
+
 /*this was the placeholder for big logo on landing page*/
 .replace-me-with-something-better {
   height:300px;
@@ -78,7 +86,7 @@
 
 
 /* Repeats in user_show.css , troubleshoot later*/
-#sign-up-but, #log-in-but {
+#sign-up-but, #log-in-but, #update-but, #cancel-but {
   color: #61BDB6;
   background-color: #FBD3E7;
   font-family: 'Quicksand', sans-serif;
@@ -92,7 +100,7 @@
 }
 
 /* Repeats in user_show.css , troubleshoot later*/
-#user_password, #user_email, #user_password_confirmation {
+#user_password, #user_email, #user_password_confirmation, #user_current_password {
   background-color: white;
   font-size: .7em;
   width: 315px;

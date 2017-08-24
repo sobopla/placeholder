@@ -8,7 +8,10 @@
       <li><h3><%= show[:artist] %></h3></li>
       <li>playing at <%= show[:venue] %></li>
       <li>on <%= show[:start] %></li>
-      <li><a href="<%= show[:link] %>"><img src="https://lh3.googleusercontent.com/8fNs6Rl3WXCiHqp3OgCPze8YnDi3bKpbMV41oWmDi01hcDtyz9w3xIcdjKFZqGCwhw=w300" alt="songkick" id="songkick"></a></li>
+      <li>
+        <a href="<%= show[:link] %>" target="_blank"><%= image_tag "songkickpng.png", :id => "songkick", :alt => "songkick" %>
+        </a>
+      </li>
     </ul>
   </div>
 
