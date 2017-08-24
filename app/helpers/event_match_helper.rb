@@ -19,6 +19,7 @@ module EventMatchHelper
         end
       end
     end
+    binding.pry
     return all_concerts
   end
 

@@ -1,7 +1,7 @@
 module PageHelper
 
   def self.get_page(page_counter)
-    if page_counter == 0
+    if page_counter == 0 || page_counter.nil?
       min_date = 1.hour.from_now.strftime("%Y-%m-%d")
       max_date = 1.days.from_now.strftime("%Y-%m-%d")
     else # 1

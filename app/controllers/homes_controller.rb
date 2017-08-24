@@ -12,10 +12,11 @@ class HomesController < ApplicationController
 
   def search
     @index_view = false
+    binding.pry
     user_genre, page_counter = SanitizeHelper.sanitize_input({user_input: params[:user_input], page: params[:page]})
     session[:user_search] = user_genre
     min_date, max_date = PageHelper.get_page(page_counter)
-
+    binding.pry
     # do we want to get rid of this because only searching by genre
     if Genre.exists?(genre: user_genre)
       artists_playing, events_queried = SongkickHelper.get_events(min_date, max_date)
@@ -26,6 +27,7 @@ class HomesController < ApplicationController
 
     if current_user
       helpers.add_genre_to_user(user_genre)
+      binding.pry
       helpers.add_to_user_events(@matched_events.first(helpers.minus_four_events(user_genre)), user_genre)
     end
 
