@@ -12,6 +12,7 @@ class HomesController < ApplicationController
 
   def search
     @index_view = false
+    binding.pry
     user_genre, page_counter = SanitizeHelper.sanitize_input({user_input: params[:user_input], page: params[:page]})
     session[:user_search] = user_genre
     min_date, max_date = PageHelper.get_page(page_counter)
