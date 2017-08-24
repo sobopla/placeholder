@@ -15,7 +15,7 @@ $(document).ready(function(){
 // LOAD ONE MONTH MORE BUTTON FUNCTIONALITY
   $("#load-more-button").on("click", function(event){
     event.preventDefault();
-    var page = $("div#data-for-load-more").data("page");
+    var page = $("div#data-for-load-more").attr("data-page");
     var user_input = $("div#data-for-load-more").data("user-search");
     $(".error-no-match").hide();
     $(".loading").toggleClass("hidden");
@@ -29,8 +29,9 @@ $(document).ready(function(){
       for (var i = 0; i < response.partials.length; i++) {
         $("div .results").append(response.partials[i])
       }
+
       var more = parseInt($("div#data-for-load-more").attr("data-page"));
-      $("div#load-more-button").attr("data-page", more + 1);
+      $("div#data-for-load-more").attr("data-page", more + 1);
       $(".loading").toggleClass("hidden");
     })
   })
