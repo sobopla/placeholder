@@ -2,14 +2,14 @@ module SongkickHelper
 
   def self.get_events(min_date, max_date, city)
     songkick = Songkickr::Remote.new ENV["SONGKICK_KEY"]
-    pages = songkick.events(min_date: min_date, max_date: max_date, location: "sk:{city}", page: 1000)
+    pages = songkick.events(min_date: min_date, max_date: max_date, location: "sk:#{city}", page: 1000)
     total_pages = (pages.total_entries / 50) + 1
 
     i = 1
     artists = []
     events = []
     while i <= total_pages
-      response = songkick.events(min_date: min_date, max_date: max_date, location: "sk:{city}", page: i)
+      response = songkick.events(min_date: min_date, max_date: max_date, location: "sk:#{city}", page: i)
       response.results.each do |result|
         events << result
         result.performances.each do |performance|
