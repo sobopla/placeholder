@@ -12,7 +12,7 @@ class HomesController < ApplicationController
 
   def search
     @index_view = false
-    binding.pry
+
     user_genre, page_counter = SanitizeHelper.sanitize_input({user_input: params[:user_input], page: params[:page]})
     session[:user_search] = user_genre
     min_date, max_date = PageHelper.get_page(page_counter)
@@ -24,10 +24,10 @@ class HomesController < ApplicationController
       @matched_events = EventMatchHelper.get_matched_events(matched_artists, events_queried)
     else # genre entered is not in database
     end
-    binding.pry
+
     if current_user
       helpers.add_genre_to_user(user_genre)
-      helpers.add_to_user_events(@matched_events.first(helpers.minus_five_events(user_genre)), user_genre)
+      helpers.add_to_user_events(@matched_events.first(helpers.minus_four_events(user_genre)), user_genre)
     end
 
     if request.xhr?
