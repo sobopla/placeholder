@@ -33,6 +33,9 @@ $(document).ready(function(){
         $("div .results").append(response.partials[i])
       }
 
+      var page_counter = $("div#data-for-load-more").attr("data-page")
+      page_counter = response.page
+
       var more = parseInt($("div#data-for-load-more").attr("data-page"));
       $("div#data-for-load-more").attr("data-page", more + 1);
       $(".loading").toggleClass("hidden");
