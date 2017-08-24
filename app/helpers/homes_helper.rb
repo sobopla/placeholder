@@ -12,7 +12,7 @@ module HomesHelper
 
   def add_to_user_events(events, genre)
     events.each do |event|
-      return if current_user.events.where(genre: genre).length >= 5
+      return if current_user.events.where(genre: genre).length >= 4
       event = Event.new(event)
       event.genre = genre
       event.user_id = current_user.id
@@ -20,9 +20,9 @@ module HomesHelper
     end
   end
 
-  def minus_five_events(genre)
+  def minus_four_events(genre)
     current_user.delete_expired_events(genre)
-    missing = 5 - current_user.events.where(genre: genre).count
+    missing = 4 - current_user.events.where(genre: genre).count
     return missing
   end
 

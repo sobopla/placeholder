@@ -30,7 +30,7 @@ class HomesController < ApplicationController
 
     if current_user
       helpers.add_genre_to_user(user_genre)
-      helpers.add_to_user_events(@matched_events.first(helpers.minus_five_events(user_genre)), user_genre)
+      helpers.add_to_user_events(@matched_events.first(helpers.minus_four_events(user_genre)), user_genre)
     end
 
     if request.xhr?
@@ -47,5 +47,6 @@ class HomesController < ApplicationController
     else
       return @matched_events
     end
+    return @matched_events
   end
 end

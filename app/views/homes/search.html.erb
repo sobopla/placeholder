@@ -4,7 +4,7 @@
   <% end %>
 <% end %>
 
-<% if @matched_events.empty? %>
+<% if @matched_events.nil? %>
   <%= render partial: "no_matches" %>
 <% end %>
 
