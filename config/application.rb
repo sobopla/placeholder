@@ -2,7 +2,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-
+ActionDispatch::Request.send :include, Geocoder::Request
 
 module Placeholder
   class Application < Rails::Application
