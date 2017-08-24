@@ -8,7 +8,8 @@ $(document).ready(function(){
     $("div.band-results").hide();
     $("div#data-for-load-more").hide();
     $("button#load-more-button").hide();
-    // $("form").trigger("reset");
+    $(".devise-container").hide();
+    $(".error-no-match").hide();
     $(".loading").toggleClass("hidden");
   })
 
