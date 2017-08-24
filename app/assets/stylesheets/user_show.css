@@ -25,6 +25,139 @@ td.user-show div.show-details li {
   display: none;
 }
 
+.container.devise-container {
+  font-family: 'Quicksand', sans-serif;
+}
+
+#new_user {
+  background-image: url("batground.jpg");
+  /*background-size: cover;*/
+  background-size: 620px;
+  border-radius: 25px;
+  background-color: #61BDB6;
+  border: 2px solid darkgray;
+  width: 350px;
+  height: 100%;
+  padding: 50px;
+  font-size: 2em;
+  }
+
+.field-remember {
+  font-size: .6em;
+}
+
+.field-password {
+  font-size: .8em;
+}
+
+.new_user #error_explanation {
+  font-size: .5em;
+  color: #bf1717;
+  background-color: #FBD3E7;
+  padding: 10px;
+  border-radius: 12px;
+  margin: auto;
+  text-decoration: none;
+  height: 60px;
+  margin-right: 150px;
+
+}
+
+/*Remove annoying Devise h2 "user error" text*/
+#error_explanation > h2 {
+  display: none;
+}
+
+/*Forgot password text*/
+.forgot-password > a {
+  font-size: 1.2em;
+  color: #61BDB6;
+  text-decoration: none;
+}
+
+/*Button styling in form*/
+#sign-up-but, #log-in-but, #reset-but{
+  color: #61BDB6;
+  background-color: #FBD3E7;
+  font-family: 'Quicksand', sans-serif;
+  font-size: .6em;
+  vertical-align: middle;
+  display: block;
+  margin: auto;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 12px;
+}
+
+/*Center the div that the login button is in on forgot password page*/
+.login-forgot-but {
+  text-align: center;
+}
+
+/*Style for the login button on forgot password page*/
+#log-in-on-forgot-but  {
+  color: #61BDB6;
+  background-color: #FBD3E7;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin:0 auto;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 12px;
+}
+
+/*Placeholder text styling */
+#user_password, #user_email, #user_password_confirmation {
+  background-color: white;
+  font-size: .7em;
+  width: 350px;
+  border-radius: 31px;
+  line-height: 38px;
+  padding-left: 10px;
+}
+
+/*Padding for placeholder text*/
+input::placeholder {
+  padding-left: 5px;
+}
+
+/*Forgot your password link*/
+.field-remember {
+  color: white;
+}
+
+p.notice {
+    color: red;
+    text-align:center;
+    vertical-align: middle;
+    /*background-color: #FBD3E7;*/
+    /*border-radius: 12px;*/
+}
+
+form {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+h2 {
+    font-size: 3rem;
+    line-height: 1.25;
+    letter-spacing: -.15rem;
+    text-align:center;
+}
+
+/*Remove box around the input field*/
+input:focus {outline: none; }
+
+/*.band-photo {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  margin-left: 100px;
+
 h2.user-show {
   text-align: left;
   font-size: 3em;
@@ -36,6 +169,7 @@ h2.user-show {
 
 div.show-details h3 {
   font-size: 1.5em;
+
 }
 
 h2.user-display {
