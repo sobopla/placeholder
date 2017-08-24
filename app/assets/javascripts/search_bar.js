@@ -12,6 +12,7 @@ $(document).ready(function(){
     $(".error-no-match").hide();
     $(".user-show").hide();
     $(".profile-page").hide();
+    $("#results-notice").hide();
     $(".loading").toggleClass("hidden");
   })
 
