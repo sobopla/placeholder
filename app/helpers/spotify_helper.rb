@@ -74,11 +74,6 @@ module SpotifyHelper
     new_artist.save
   end
 
-
-
-
-
-
 end
 
 

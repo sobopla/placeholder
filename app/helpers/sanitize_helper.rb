@@ -2,7 +2,7 @@ module SanitizeHelper
 
   def self.sanitize_input(input)
     if is_match(input[:user_input])
-      page_counter = input[:user_input].slice!(/\d+ months from now/).slice!(/\d{1,2}/).to_i
+      page_counter = input[:user_input].slice!(/\d+ weeks from now/).slice!(/\d{1,2}/).to_i
       user_genre = input[:user_input]
     else
       page_counter = input[:page].to_i
@@ -13,7 +13,7 @@ module SanitizeHelper
   end
 
   def self.is_match(string)
-    !!(string =~ /\d+ months from now/)
+    !!(string =~ /\d+ weeks from now/)
   end
 
 end
