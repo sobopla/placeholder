@@ -1,3 +1,5 @@
+<h2 id="results-notice">your results for "<%= @user_search %>"</h2>
+
 <% if @matched_events %>
   <% @matched_events.each do |show| %>
     <%= render partial: "display_show", locals: { show: show } %>
@@ -8,16 +10,16 @@
   <%= render partial: "no_matches" %>
 <% end %>
 
-
 <div class="results"></div>
 
 <div class="loading hidden">
   <span>boppin'</span>
 </div>
 
-
 <div id="data-for-load-more" data-page="1" data-user-search="<%= session[:user_search] %>">
-  <%= image_tag "load-more-profile-page.png", :id => "load-more-button" %>
+
+  <%= image_tag "load-more.png", :id => "load-more-button" %>
+
 </div>
 
 <span class="this is search.html.erb"></span>

@@ -2,18 +2,10 @@ class HomesController < ApplicationController
 
   def index
     @index_view = true
-
-    # city = "Austin"
-    # if City.exists?(name: city)
-    #   current_city = City.find_by(name: city)
-    #   city_songkick_id = current_city.songkick
-    # else
-    #   city_songkick_id = SongkickHelper.get_city(city)
-    # end
-    # session[:city_songkick_id] = city_songkick_id
   end
 
   def search
+    @user_search = params[:user_input]
     @index_view = false
 
     user_genre, page_counter = SanitizeHelper.sanitize_input({user_input: params[:user_input], page: params[:page]})
