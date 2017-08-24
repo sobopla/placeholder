@@ -44,5 +44,6 @@ class HomesController < ApplicationController
     else
       return @matched_events
     end
+    return @matched_events
   end
 end
