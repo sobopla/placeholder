@@ -1,7 +1,7 @@
 module HomesHelper
 
   def total_months(string)
-    matched_phrase = string.slice!(/\d+ months from now/) # "5 months from now"
+    matched_phrase = string.slice!(/\d+ months from now/)
     months_later = string.slice!(/\d+ months from now/).slice!(/\d{1,2}/)
     return genre, time
   end

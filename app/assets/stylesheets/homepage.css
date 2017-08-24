@@ -30,16 +30,10 @@
 }
 
 .nav-bar .user-link {
-  /*background-color: red;*/
   float: right;
   margin-left: 15px;
   margin-right: 15px;
-
   margin-top: 75px;
-
-  /*margin-top: 20px;
-  vertical-align: bottom;*/
-
 }
 
 .footer {
@@ -92,9 +86,6 @@
   vertical-align: middle;
   display: block;
   margin: auto;
-  /*position: relative;
-  /*left: 50%;
-  margin-right: -50%;*/
   text-decoration: none;
   padding: 5px;
   border-radius: 12px;
@@ -115,13 +106,11 @@
 }
 
 .homes-logo {
-  line-height: 30px;
+  line-height: 20px;
   text-align: center;
-  padding: 20px;
 }
 
 #homepage-desc {
-  padding: 30px;
   text-align: center;
   font-weight: bold;
   font-size: 3.8em;
