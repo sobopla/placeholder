@@ -1,5 +1,5 @@
 td.user-show {
-  background-color: #61BDB6;
+  border: 2px dashed #61BDB6;
   vertical-align: top;
   text-align: center;
   border-radius: 12px;
@@ -30,7 +30,7 @@ td.user-show div.show-details li {
 }
 
 #new_user {
-  background-image: url("batground.jpg");
+  background-image: url('<%= asset_path("batground.jpg") %>')
   /*background-size: cover;*/
   background-size: 620px;
   border-radius: 25px;
@@ -58,9 +58,9 @@ td.user-show div.show-details li {
   border-radius: 12px;
   margin: auto;
   text-decoration: none;
-  height: 60px;
+  height: 100%;
   margin-right: 150px;
-
+  width: 100%;
 }
 
 /*Remove annoying Devise h2 "user error" text*/
@@ -152,11 +152,12 @@ h2 {
 /*Remove box around the input field*/
 input:focus {outline: none; }
 
-/*.band-photo {
+.band-photo {
   width: 150px;
   height: 150px;
   padding: 20px;
   margin-left: 100px;
+}
 
 h2.user-show {
   text-align: left;
@@ -169,7 +170,6 @@ h2.user-show {
 
 div.show-details h3 {
   font-size: 1.5em;
-
 }
 
 h2.user-display {
