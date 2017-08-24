@@ -11,7 +11,6 @@ class HomesController < ApplicationController
       city_songkick_id = SongkickHelper.get_city(city)
     end
     session[:city_songkick_id] = city_songkick_id
-    binding.pry
   end
 
   def search
