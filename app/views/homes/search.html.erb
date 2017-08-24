@@ -6,7 +6,7 @@
   <% end %>
 <% end %>
 
-<% if @matched_events.nil? %>
+<% if @matched_events.nil? || @matched_events.empty? %>
   <%= render partial: "no_matches" %>
 <% end %>
 
@@ -17,7 +17,9 @@
 </div>
 
 <div id="data-for-load-more" data-page="1" data-user-search="<%= session[:user_search] %>">
+
   <%= image_tag "load-more.png", :id => "load-more-button" %>
+
 </div>
 
 <span class="this is search.html.erb"></span>

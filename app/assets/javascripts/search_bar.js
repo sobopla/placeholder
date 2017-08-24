@@ -10,6 +10,8 @@ $(document).ready(function(){
     $("button#load-more-button").hide();
     $(".devise-container").hide();
     $(".error-no-match").hide();
+    $(".user-show").hide();
+    $(".profile-page").hide();
     $(".loading").toggleClass("hidden");
   })
 
