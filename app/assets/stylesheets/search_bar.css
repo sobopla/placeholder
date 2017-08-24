@@ -15,7 +15,6 @@
 .flexsearch--form {
     overflow: hidden;
     position: relative;
-    /*background-color: yellow;*/
     margin: auto;
     padding-left: 20px;
     width: 75%;
@@ -25,7 +24,6 @@
 .flexsearch--input-wrapper {
     padding: 0 66px 0 0; /* Right padding for submit button width */
     overflow: hidden;
-    /*background-color: green;*/
     margin-top: 45px;
 }
 
