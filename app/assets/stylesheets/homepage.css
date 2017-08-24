@@ -23,7 +23,7 @@
 
 .nav-bar .logo {
   float: left;
-  padding-left: 20px;
+  padding-left: 100px;
   vertical-align: center;
   background-color: #61BDB6;
   /*padding: none;*//* see if this caused no padding on heroku*/
