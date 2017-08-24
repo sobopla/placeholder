@@ -47,11 +47,17 @@ div #user-show {
 .new_user #error_explanation {
   font-size: .5em;
   color: #bf1717;
-  /*background-color: lightgray;*/
-  padding: 5px;
+  background-color: #FBD3E7;
+  padding: 10px;
+  border-radius: 12px;
+  margin: auto;
+  text-decoration: none;
+  height: 60px;
+  margin-right: 150px;
 
 }
 
+/*Remove annoying Devise h2 "user error" text*/
 #error_explanation > h2 {
   display: none;
 }
@@ -103,6 +109,7 @@ div #user-show {
   width: 350px;
   border-radius: 31px;
   line-height: 38px;
+  padding-left: 10px;
 }
 
 /*Padding for placeholder text*/
@@ -119,6 +126,8 @@ p.notice {
     color: red;
     text-align:center;
     vertical-align: middle;
+    /*background-color: #FBD3E7;*/
+    /*border-radius: 12px;*/
 }
 
 form {
@@ -133,6 +142,9 @@ h2 {
     letter-spacing: -.15rem;
     text-align:center;
 }
+
+/*Remove box around the input field*/
+input:focus {outline: none; }
 
 /*.band-photo {
   width: 150px;

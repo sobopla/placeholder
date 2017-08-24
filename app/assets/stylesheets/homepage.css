@@ -84,10 +84,12 @@
     text-align: left;
 }
 
+/*this was the placeholder for big logo on landing page*/
 .replace-me-with-something-better {
   height:300px;
 }
 
+/* Repeats in user_show.css , troubleshoot later*/
 #sign-up-but, #log-in-but {
   color: #61BDB6;
   background-color: #FBD3E7;
@@ -104,6 +106,7 @@
   border-radius: 12px;
 }
 
+/* Repeats in user_show.css , troubleshoot later*/
 #user_password, #user_email, #user_password_confirmation {
   background-color: white;
   font-size: .7em;
@@ -112,6 +115,7 @@
   line-height: 38px;
 }
 
+/* Repeats in user_show.css , troubleshoot later*/
 .field-remember {
   color: white;
 }*/
