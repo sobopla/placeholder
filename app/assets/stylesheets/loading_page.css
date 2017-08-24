@@ -62,10 +62,4 @@
 .hidden {
    visibility: hidden;
 }
-#boppin {
-  background-color: red;
-  /*vertical-align: bottom;*/
-  /*margin-top: 1000px;*/
-  padding-top: 1000px;
-  /*position:relative;*/
-}
+

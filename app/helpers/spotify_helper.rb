@@ -47,12 +47,12 @@ module SpotifyHelper
     access_token = SpotifyHelper.get_token
 
     artists_array.each do |artist|
-      next if artist == ""
       found_artist = Artist.find_by(name: artist) # return nil or first item
       if found_artist
         artists << found_artist if found_artist.has_genre?(user_genre)
       else # need to make a Spotify API call to get the Spotify ID
         new_artist = Artist.new(name: artist)
+        next if artist == ""
         next if new_artist.has_weird_characters # skip if artist has funky characters
         spotify_artist_info = JSON.parse(api_call(new_artist.name).body)["artists"]["items"] # something might be broken here?
         next if spotify_artist_info.empty? # skip artists with no information
