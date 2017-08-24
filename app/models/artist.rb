@@ -11,6 +11,4 @@ class Artist < ApplicationRecord
   def has_weird_characters
     !!(self.name).match(/[^\w\s]/)
   end
-
-
 end
