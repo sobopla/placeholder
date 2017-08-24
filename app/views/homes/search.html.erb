@@ -1,10 +1,13 @@
 <% if @matched_events %>
   <% @matched_events.each do |show| %>
-
     <%= render partial: "display_show", locals: { show: show } %>
-
   <% end %>
 <% end %>
+
+<% if @matched_events.nil? %>
+  <%= render partial: "no_matches" %>
+<% end %>
+
 
 <div class="results"></div>
 
@@ -12,6 +15,9 @@
   <span>boppin'</span>
 </div>
 
-<button data-page="1" data-user-search="<%= session[:user_search] %>" type="button" id="load-more-button">load more</button>
+
+<div id="data-for-load-more" data-page="1" data-user-search="<%= session[:user_search] %>">
+  <%= image_tag "load_more.png", :id => "load-more-button" %>
+</div>
 
 <span class="this is search.html.erb"></span>

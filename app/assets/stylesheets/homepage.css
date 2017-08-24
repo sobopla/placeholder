@@ -34,11 +34,15 @@
   float: right;
   margin-left: 15px;
   margin-right: 15px;
+
   margin-top: 75px;
+
+  /*margin-top: 20px;
+  vertical-align: bottom;*/
+
 }
 
 .footer {
-/*  position: relative;*/
   min-height: 100%;
   padding-top: 60px;
 }
@@ -50,16 +54,6 @@
   float: left;
 }
 
-.movie-container {
-  text-align: center;
-  color: white;
-  margin-left: 50px;
-  margin-right: 50px;
-  height: 100%;
-  line-height: 90%;
-  font-family: 'Quicksand', sans-serif;
-}
-
 .profile-page {
   text-align: center;
   color: black;
@@ -69,7 +63,6 @@
   line-height: 90%;
   font-family: 'Quicksand', sans-serif;
 }
-
 
 .devise-container {
   display: block;
@@ -88,6 +81,7 @@
 .replace-me-with-something-better {
   height:300px;
 }
+
 
 /* Repeats in user_show.css , troubleshoot later*/
 #sign-up-but, #log-in-but {
@@ -118,4 +112,29 @@
 /* Repeats in user_show.css , troubleshoot later*/
 .field-remember {
   color: white;
-}*/
+}
+
+.homes-logo {
+  line-height: 30px;
+  text-align: center;
+  padding: 20px;
+}
+
+#homepage-desc {
+  padding: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 3.8em;
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 0;
+}
+
+.comma {
+  color: #61BDB6;;
+}
+
+.exclamation {
+  color: #61BDB6;;
+}
+
+

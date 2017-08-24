@@ -5,13 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
 # Custom Gems
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'geocoder', '~> 1.1.8'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
@@ -50,7 +52,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara', "~> 2.5"
   gem 'launchy'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  # gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-rspec', require: false
   gem 'factory_girl_rails'
   gem 'database_cleaner'

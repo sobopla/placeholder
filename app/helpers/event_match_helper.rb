@@ -1,24 +1,22 @@
 module EventMatchHelper
 
-  def self.get_matched_events(artists, events, type)
+  def self.get_matched_events(artists, events)
     all_concerts = []
     events.each do |event|
       start = modify_start(event.start)
       link = event.uri
       venue = event.venue.display_name
-
       event.performances.each do |concert|
         if artists.pluck(:name).any? { |word| word.include?(concert.artist.display_name) }
           artist = Artist.find_by(name: concert.artist.display_name)
           show = {  title: concert.artist.display_name,
-                    artist: artist.name,
-                    time: start,
+                    artist: concert.artist.display_name,
+                    start: start,
                     link: link,
                     venue: venue,
                     image: artist.image }
           all_concerts << show
         end
-        return all_concerts if type == "user" && all_concerts.length == 5
       end
     end
     return all_concerts

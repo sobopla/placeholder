@@ -1,12 +1,12 @@
 module SongkickHelper
 
-  # def self.get_events(city, time)
+  # def self.get_events(min_date, max_date, city)
   def self.get_events(min_date, max_date)
-    songkick = Songkickr::Remote.new "CdiRCPNwC1rX99q1" # Songkick key
+    songkick = Songkickr::Remote.new ENV["SONGKICK_KEY"] # Songkick key
 
     pages = songkick.events(min_date: min_date, max_date: max_date,location: "sk:9179", page: 1000)
+    total_pages = (pages.total_entries / 50) + 1
 
-    total_pages = (pages.total_entries / 50) + 1 # tells how many pages of events there are
     i = 1
     artists = []
     events = []
@@ -26,23 +26,21 @@ module SongkickHelper
 
   def self.get_city(user_city)
     uri = URI.parse("http://api.songkick.com/api/3.0/search/locations.json?query=#{user_city}&apikey=CdiRCPNwC1rX99q1")
-        request = Net::HTTP::Get.new(uri)
+    request = Net::HTTP::Get.new(uri)
 
-        req_options = {
-          use_ssl: uri.scheme == "https",
-        }
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
 
-        response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-          http.request(request)
-        end
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
 
     parsed_response = JSON.parse(response.body)
 
     parsed_response["resultsPage"]["results"]["location"].each do |city|
       City.create(songkick: city["metroArea"]["id"], name: city["metroArea"]["displayName"])
     end
-
-
   end
 end
 

@@ -1,3 +1,6 @@
+#boppin {
+    position:absolute;
+}
 
 .loading {
   font-family: 'Fontdiner Swanky', cursive;
@@ -5,8 +8,8 @@
   font-size: 100px;
   text-align:center;
   line-height:50px;
-
-  position:absolute;
+  position:relative;
+  /*position:absolute;*/
   left:0;right:0;top:50%;
   margin:auto;
   transform:translateY(-50%);
@@ -24,6 +27,7 @@
   height:100px;
   display:block;
   position:absolute;
+  /*position:relative;*/
   top:0;left:0;right:0;bottom:0;
   margin:auto;
 
@@ -44,6 +48,7 @@
   height:140px;
   display:block;
   position:absolute;
+  /*position:relative;*/
   top:0;left:0;right:0;bottom:0;
   margin:auto;
   opacity:.9;

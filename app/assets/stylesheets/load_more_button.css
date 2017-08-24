@@ -1,8 +1,6 @@
-#load-more-button {
-  margin: auto;
-  background-color: #FBD3E7;
-      font-size: 1.3em;
-      padding: 5px;
-    border-radius: 5px;
-    text-decoration: none;
+#load-more-button  {
+   display: block;
+    margin: auto;
+    width: 20%;
+
 }
