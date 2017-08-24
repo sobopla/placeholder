@@ -2,7 +2,7 @@ class HomesController < ApplicationController
 
   def index
     @index_view = true
-    city = request.location.city
+    city = request.location.city # "Austin"
     if City.exists?(name: city)
       current_city = City.find_by(name: city)
       city_songkick_id = current_city.songkick
