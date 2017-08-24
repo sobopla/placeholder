@@ -4,7 +4,7 @@ require 'json'
 module SpotifyHelper
 
   def self.get_token
-    encode = (Base64.encode64("98dde3b460bc42a6b3ea332b548b3ea2" + ':' + "3d6c772b442f4454994fa3635122fc14")).gsub("\n",'')
+    encode = (Base64.encode64(ENV["SPOTIFY_ID"] + ':' + ENV["SPOTIFY_SECRET"])).gsub("\n",'')
     uri = URI.parse("https://accounts.spotify.com/api/token")
     request = Net::HTTP::Post.new(uri)
     request["Authorization"] = "Basic #{encode}"
@@ -73,11 +73,6 @@ module SpotifyHelper
     end
     new_artist.save
   end
-
-
-
-
-
 
 end
 

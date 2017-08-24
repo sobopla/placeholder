@@ -18,7 +18,7 @@ $(document).ready(function(){
     var page = $("div#data-for-load-more").attr("data-page");
     var user_input = $("div#data-for-load-more").data("user-search");
     $(".error-no-match").hide();
-    $(".loading").toggleClass("hidden");
+    $(".loading").toggleClass("hidden")
 
     var data = {
       user_input: user_input,
