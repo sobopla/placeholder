@@ -2,29 +2,32 @@ class HomesController < ApplicationController
 
   def index
     @index_view = true
-    # @city = request.location.city
-    @city = "Austin"
-    # if City.exists?(name: @city)
-    #   SongkickHelper.get_city(@city)
-    # else
-    # end
+    city = request.location.city
+    # city = "Austin"
+    if City.exists?(name: city)
+      current_city = City.find_by(name: city)
+      city_songkick_id = current_city.songkick
+    else
+      city_songkick_id = SongkickHelper.get_city(@city)
+    end
+    session[:city_songkick_id] = city_songkick_id
   end
 
   def search
     @index_view = false
-    binding.pry
+
     user_genre, page_counter = SanitizeHelper.sanitize_input({user_input: params[:user_input], page: params[:page]})
     session[:user_search] = user_genre
     min_date, max_date = PageHelper.get_page(page_counter)
 
     # do we want to get rid of this because only searching by genre
     if Genre.exists?(genre: user_genre)
-      artists_playing, events_queried = SongkickHelper.get_events(min_date, max_date)
+      artists_playing, events_queried = SongkickHelper.get_events(min_date, max_date, session[:city_songkick_id])
       matched_artists = SpotifyHelper.genre_check(artists_playing, user_genre)
       @matched_events = EventMatchHelper.get_matched_events(matched_artists, events_queried)
     else # genre entered is not in database
     end
-    binding.pry
+
     if current_user
       helpers.add_genre_to_user(user_genre)
       helpers.add_to_user_events(@matched_events.first(helpers.minus_five_events(user_genre)), user_genre)
