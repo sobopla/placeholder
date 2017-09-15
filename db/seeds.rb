@@ -3,4 +3,4 @@ genres = ["Alternative","Art Punk","Indie", "thrash", "r&b", "folk", "Alternativ
 genres.each do |genre_type|
   Genre.create(genre: genre_type.downcase)
 end
-yacht
+
