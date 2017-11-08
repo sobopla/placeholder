@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20170823014938) do
   create_table "searches", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_searches_on_genre_id"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
