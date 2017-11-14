@@ -4,5 +4,6 @@ genres.each do |genre_type|
   Genre.create(genre: genre_type.downcase)
 end
 
-#about 400 genres in the db
+
+#about 400 genres
 
