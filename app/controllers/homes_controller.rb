@@ -9,6 +9,7 @@ class HomesController < ApplicationController
     #   city_songkick_id = current_city.songkick
     # else
       # city_songkick_id = SongkickHelper.get_city(city)
+#       city_songkick_id = SongkickHelper.get_city(city)
     # end
     # session[:city_songkick_id] = city_songkick_id
     session[:city_songkick_id] = 24426
