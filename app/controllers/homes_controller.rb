@@ -3,12 +3,12 @@ class HomesController < ApplicationController
   def index
     @index_view = true
     # city = request.location.city
-    # city = "Austin"
+    # city = Austin
     # if City.exists?(name: city)
     #   current_city = City.find_by(name: city)
     #   city_songkick_id = current_city.songkick
     # else
-      # city_songkick_id = SongkickHelper.get_city(city)
+      city_songkick_id = SongkickHelper.get_city("Austin")
 #       city_songkick_id = SongkickHelper.get_city(city)
     # end
     # session[:city_songkick_id] = city_songkick_id
