@@ -54,7 +54,7 @@ module SpotifyHelper
         new_artist = Artist.new(name: artist)
         next if new_artist == ""
         next if new_artist.has_weird_characters # skip if artist has funky characters
-        next if JSON.parse(api_call(new_artist.name).body)["artists"] == []
+        next if JSON.parse(api_call(new_artist.name).body)["artists"] == nil
         spotify_artist_info = JSON.parse(api_call(new_artist.name).body)["artists"]["items"] # something might be broken here?
         next if spotify_artist_info.empty? # skip artists with no information
         update_new_artist(new_artist, spotify_artist_info)
